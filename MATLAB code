@@ -1,0 +1,46 @@
+% Define registers
+R = zeros(1, 16); % 16 registers
+% Sample program memory
+program_memory = [
+1, 1, 2, 3; % Load R1 with 3
+1, 2, 3, 2; % Load R2 with 2
+3, 3, 1, 2; % Add R3 = R1 + R2
+4, 4, 1, 2; % Subtract R4 = R1 - R2
+5, 5, 1, 2; % Multiply R5 = R1 * R2
+6, 6, 1, 2; % Divide R6 = R1 / R2
+7, 7, 1, 2; % Bitwise AND R7 = R1 & R2
+8, 8, 1, 2; % Bitwise OR R8 = R1 | R2
+9, 9, 1, 2 % Bitwise XOR R9 = R1 ^ R2
+
+10
+
+];
+% Execution loop
+for i = 1:size(program_memory, 1)
+opcode = program_memory(i, 1);
+dest_reg = program_memory(i, 2);
+src_reg1 = program_memory(i, 3);
+src_reg2 = program_memory(i, 4);
+switch opcode
+case 1 % Load
+R(dest_reg) = src_reg1;
+case 3 % Add
+R(dest_reg) = R(src_reg1) + R(src_reg2);
+case 4 % Subtract
+R(dest_reg) = R(src_reg1) - R(src_reg2);
+case 5 % Multiply
+R(dest_reg) = R(src_reg1) * R(src_reg2);
+case 6 % Divide
+R(dest_reg) = R(src_reg1) / R(src_reg2);
+case 7 % Bitwise AND
+R(dest_reg) = bitand(R(src_reg1), R(src_reg2));
+case 8 % Bitwise OR
+R(dest_reg) = bitor(R(src_reg1), R(src_reg2));
+case 9 % Bitwise XOR
+R(dest_reg) = bitxor(R(src_reg1), R(src_reg2));
+end
+end
+% Display results
+for i = 1:16
+fprintf('R%d: %d\n', i, R(i));
+end
