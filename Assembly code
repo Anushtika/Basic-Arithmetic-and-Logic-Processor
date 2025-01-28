@@ -1,0 +1,30 @@
+; Sample Assembly Code for Processor with Minimal Instructions
+; Load values into registers
+LOAD R1, 5 ; Load 5 into Register R1
+LOAD R2, 3 ; Load 3 into Register R2
+; Perform Arithmetic Operations
+ADD R3, R1, R2 ; R3 = R1 + R2 (5 + 3 = 8)
+SUB R4, R1, R2 ; R4 = R1 - R2 (5 - 3 = 2)
+MUL R5, R1, R2 ; R5 = R1 * R2 (5 * 3 = 15)
+DIV R6, R1, R2 ; R6 = R1 / R2 (5 / 3 = 1, integer division)
+; Perform Logic Operations
+AND R7, R1, R2 ; R7 = R1 AND R2 (bitwise AND)
+OR R8, R1, R2 ; R8 = R1 OR R2 (bitwise OR)
+; Perform NOT operation
+NOT R9, R1 ; R9 = NOT R1 (bitwise NOT)
+; Store results in memory
+STORE R3, Result_Addition ; Store addition result
+STORE R4, Result_Subtraction ; Store subtraction result
+STORE R5, Result_Multiplication; Store multiplication result
+STORE R6, Result_Division ; Store division result
+STORE R7, Result_AND ; Store AND result
+STORE R8, Result_OR ; Store OR result
+STORE R9, Result_NOT ; Store NOT result
+; Memory locations for storing results
+Result_Addition: DATA 0 ; Initialize memory
+Result_Subtraction: DATA 0
+Result_Multiplication: DATA 0
+Result_Division: DATA 0
+Result_AND: DATA 0
+Result_OR: DATA 0
+Result_NOT: DATA 0
